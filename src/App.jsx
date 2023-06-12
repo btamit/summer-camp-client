@@ -1,20 +1,23 @@
 
-import './App.css'
+import { Outlet, useNavigation } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import LoadingSpinner from "./components/LoadingSpinner";
 
-function App() {
-
+const App = () => {
+  const navigation = useNavigation();
+  console.log(navigation.state);
+  if (navigation.state === "loading") {
+    return <LoadingSpinner />;
+  }
   return (
-    <>
-      <h2>Hello Summer Camp School, I am coming to you</h2>
-      <button className="btn">Button</button>
-      <button className="btn btn-neutral">Neutral</button>
-      <button className="btn btn-primary">Button</button>
-      <button className="btn btn-secondary">Button</button>
-      <button className="btn btn-accent">Button</button>
-      <button className="btn btn-ghost">Button</button>
-      <button className="btn btn-link">Button</button>
-    </>
+    <div>
+      <Header></Header>
+      <div className="min-h-[calc(100vh-136px)]">
+        <Outlet />
+      </div>
+      <Footer></Footer>
+    </div>
   );
-}
-
-export default App
+};
+export default App;
