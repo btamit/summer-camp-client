@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="px-4 divide-y py-6 relative mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:pt-6 lg:pb-1">
         <div className="md:flex gap-28">
           <div className="text-white mb-8">
-            <h2 className="font-bold text-xl mb-5">Summer Camp School</h2>
+            <h2 className="font-bold text-xl mb-5">Martial Arts</h2>
             <p>Our Curriculam </p>
             <p>Rewards Program</p>
             <p>Trade Program</p>
@@ -32,7 +32,7 @@ const Footer = () => {
                 src="https://cdn-icons-png.flaticon.com/128/2190/2190552.png"
                 alt=""
               />
-              <p>summer.camp.school@gmail.com</p>
+              <p>martial.arts.853@gmail.com</p>
             </div>
             <p>232, PL-Street, USA</p>
             <p>+3 543- 879 - 3245</p>
@@ -41,12 +41,12 @@ const Footer = () => {
             <div className="flex gap-5">
               <img
                 className="w-24 h-16"
-                src="https://leadschool.in/wp-content/uploads/2022/05/Summer-Camp-logo-Final-01-2-e1651814252190.png"
+                src="https://napleskarate.com/upload/AMA-Logo-clean.png"
                 alt=""
               />
             </div>
             <p className="text-white my-5">
-              Summer Camp is an educational platform
+              Martial Arts is an educational platform
             </p>
             <div className="flex gap-5 mb-12">
               <Link to="https://web.facebook.com">
@@ -81,8 +81,8 @@ const Footer = () => {
           </div>
         </div>
         <div className="py-6 text-sm  text-white font-bold  flex justify-between">
-          <span>Powered by Summer Camp School</span>
-          <span>© 2023 Summer Camp School. All rights reserved.</span>
+          <span>Powered by Martial Arts</span>
+          <span>© 2023 Martial Arts. All rights reserved.</span>
         </div>
       </div>
     </footer>

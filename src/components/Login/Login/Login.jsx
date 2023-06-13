@@ -1,15 +1,12 @@
-import { useContext, useState,useEffect } from "react";
+import { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../../../firebase/firebase.config";
-
+import { Helmet } from "react-helmet-async";
 const Login = () => {
   const auth = getAuth(app);
-    useEffect(() => {
-      document.title = "Toy-Shop | Login";
-    }, []);
   const [error, setError] = useState('');
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
@@ -57,72 +54,77 @@ const Login = () => {
     })
   };
   return (
-    <div className="hero min-h-screen ">
-      <div className="hero-content flex-col bg-gray-700">
-        <div className="text-center">
-          <h1 className="text-5xl font-bold">Please Login !</h1>
-        </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gray-700">
-          <form onSubmit={handleLogin} className="card-body">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                type="email"
-                name="email"
-                placeholder="email"
-                required
-                className="input input-bordered"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="password"
-                name="password"
-                placeholder="password"
-                required
-                className="input input-bordered"
-              />
-              <label className="label">
-                <a
-                  href="#"
-                  className="underline label-text-alt link link-hover"
-                >
-                  Forgot password?
-                </a>
-              </label>
-              <p className="text-amber-400">{error}</p>
-            </div>
-            <div className="form-control mt-4">
-              <button className="btn btn-primary border-none">Login</button>
-            </div>
-          </form>
-          <div className="flex p-5 gap-2">
-            <p
-              onClick={handleGoogleSignIn}
-              className="border rounded-lg cursor-pointer p-2 flex items-center"
-            >
-              <FaGoogle />
-              Login with google
-            </p>
-            <p
-              onClick={handleGithubSignIn}
-              className="border rounded-lg cursor-pointer p-2 flex items-center"
-            >
-              <FaGithub />
-              Login with github
-            </p>
+    <>
+      <Helmet>
+        <title>Martial Arts | Login</title>
+      </Helmet>
+      <div className="hero min-h-screen ">
+        <div className="hero-content flex-col bg-gray-700">
+          <div className="text-center">
+            <h1 className="text-5xl font-bold">Please Login !</h1>
           </div>
-          <Link to="/register" className="underline p-5">
-            Do not have an account? Please Sign Up
-          </Link>
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gray-700">
+            <form onSubmit={handleLogin} className="card-body">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="email"
+                  required
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  required
+                  className="input input-bordered"
+                />
+                <label className="label">
+                  <a
+                    href="#"
+                    className="underline label-text-alt link link-hover"
+                  >
+                    Forgot password?
+                  </a>
+                </label>
+                <p className="text-amber-400">{error}</p>
+              </div>
+              <div className="form-control mt-4">
+                <button className="btn btn-primary border-none">Login</button>
+              </div>
+            </form>
+            <div className="flex p-5 gap-2">
+              <p
+                onClick={handleGoogleSignIn}
+                className="border rounded-lg cursor-pointer p-2 flex items-center"
+              >
+                <FaGoogle />
+                Login with google
+              </p>
+              <p
+                onClick={handleGithubSignIn}
+                className="border rounded-lg cursor-pointer p-2 flex items-center"
+              >
+                <FaGithub />
+                Login with github
+              </p>
+            </div>
+            <Link to="/register" className="underline p-5">
+              Do not have an account? Please Sign Up
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

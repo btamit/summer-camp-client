@@ -6,20 +6,20 @@ const usePageTitle = () => {
 
   useEffect(() => {
     const routeName = location.pathname; // Get the current route path
-    let title = "Summer-Camp-School"; // Default title
+    let title = "Martial Arts"; // Default title
 
     // Update the title based on the current route
     if (routeName === "/") {
-      title = "Summer-Camp-School | Home";
+      title = "Martial Arts | Home";
     } else if (routeName === "/instructors") {
-      title = "Summer-Camp-School | Instructors";
+      title = "Martial Arts | Instructors";
     } else if (routeName === "/classes") {
-      title = "Summer-Camp-School | Classes";
+      title = "Martial Arts | Classes";
     }
      else if (routeName === "/login") {
-       title = "Summer-Camp-School| Login";
+       title = "Martial Arts| Login";
      } else if (routeName === "/register") {
-       title = "Summer-Camp-School | Register";
+       title = "Martial Arts | Register";
      }
 
     document.title = title; // Update the document title

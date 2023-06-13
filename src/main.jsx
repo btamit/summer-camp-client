@@ -10,6 +10,7 @@ import Register from "./components/Login/Register/Register";
 import LoadingSpinner from "./components/LoadingSpinner";
 import Instructors from "./components/Instructors";
 import Classes from "./components/Classes";
+import {HelmetProvider } from "react-helmet-async";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthProvider>
-    <RouterProvider router={router}></RouterProvider>
+    <HelmetProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </HelmetProvider>
   </AuthProvider>
 );

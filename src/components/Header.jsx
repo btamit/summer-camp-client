@@ -18,11 +18,11 @@ const Header = () => {
             <div className="flex gap-5 items-center">
               <img
                 className="w-24 h-16"
-                src="https://leadschool.in/wp-content/uploads/2022/05/Summer-Camp-logo-Final-01-2-e1651814252190.png"
+                src="https://napleskarate.com/upload/AMA-Logo-clean.png"
                 alt=""
               />
               <h2 className="text-white text-2xl font-bold">
-                Summer Camp School
+                Martial Arts
               </h2>
             </div>
           </Link>
