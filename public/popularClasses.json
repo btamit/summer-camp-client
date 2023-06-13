@@ -1,0 +1,110 @@
+[
+  {
+    "_id": 1,
+    "className": "Karate",
+    "students": 60,
+    "category": "popular",
+    "description": "Discipline, Strikes, Self-defense, Focus",
+    "image": "https://www.shutterstock.com/image-photo/karate-man-kimono-hits-foot-260nw-516217219.jpg",
+    "price": 50
+  },
+  {
+    "_id": 2,
+    "className": "Taekwondo",
+    "students": 55,
+    "category": "popular",
+    "description": "Kicks, Agility, Sparring, Forms",
+    "image": "https://img.olympicchannel.com/images/image/private/t_s_w960/t_s_16_9_g_auto/f_auto/v1668614228/primary/ij1opbprknioaoxoqjmp",
+     "price": 30
+  },
+  {
+    "_id": 3,
+    "className": "Judo",
+    "students": 50,
+    "category": "popular",
+    "description": "Throws, Grappling, Balance, Competition",
+    "image":"https://www.kcpinternational.com/wp-content/uploads/2011/09/50208542308_12222e860b_c.jpg",
+    "price": 40
+  },
+  {
+    "_id": 4,
+    "className": "Kung Fu",
+    "students": 45,
+    "category": "non-popular",
+    "description": "Fluidity, Forms, Strikes, Meditation",
+    "image": "https://interactchina.files.wordpress.com/2020/11/proverbe-chinois-kung-fu_7-1.jpg?w=584",
+    "price": 30
+  },
+  {
+    "_id": 5,
+    "className": "Brazilian Jiu-Jitsu",
+    "students": 40,
+    "category": "popular",
+    "description": "Ground Fighting, Submissions, Grappling",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrCfTqig0CPkblNOLl8Frx-iuGKhMscihwkk2X3b1k-jmErP1oZLXNEc9UCOa0xRKlYpU&usqp=CAU",
+    "price": 60
+  },
+  {
+    "_id": 6,
+    "className": "Muay Thai",
+    "students": 35,
+    "category": "non-popular",
+    "description": "Striking, Clinching, Elbows, Knees",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Muay_Thai_Fight_Us_Vs_Burma_%2880668065%29.jpeg/320px-Muay_Thai_Fight_Us_Vs_Burma_%2880668065%29.jpeg",
+    "price": 50
+  },
+  {
+    "_id": 7,
+    "className": "Boxing",
+    "students": 30,
+    "category": "popular",
+    "description": "Punching, Footwork, Defense, Conditioning",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS4ckn4U5mUFhqu5vdZIFvBztuhZVZEjo_cCdXSWRVdZSooovJx6qjvkRWM3f6Xepza18&usqp=CAU",
+    "price": 40
+  },
+  {
+    "_id": 8,
+    "className": "Capoeira",
+    "students": 25,
+    "category": "non-popular",
+    "description": "Acrobatics, Music, Dance, Martial Art",
+    "image": "https://static.wixstatic.com/media/d6640e_2f92487563e747bca9ba9a11d2c5391b~mv2.png/v1/fill/w_640,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/d6640e_2f92487563e747bca9ba9a11d2c5391b~mv2.png",
+    "price": 30
+  },
+  {
+    "_id": 9,
+    "className": "Krav Maga",
+    "students": 20,
+    "category": "popular",
+    "description": "Self-defense, Practical Techniques, Combat",
+    "image": "https://przyda-sie.pl/wp-content/uploads/2019/11/foto-ex-678x357.jpg",
+    "price": 60
+  },
+  {
+    "_id": 10,
+    "className": "Kickboxing",
+    "students": 15,
+    "category": "non-popular",
+    "description": "Kicks, Punches, Conditioning, Sparring",
+    "image": "https://media.istockphoto.com/id/970126044/photo/group-of-women-kickboxing-together-at-gym.jpg?s=170667a&w=is&k=20&c=_S8yNGX9hb1trTcAHrBRn4bURPQpmqw_5j4-5LFOMAU=",
+    "price": 50
+  },
+  {
+    "_id": 11,
+    "className": "Aikido",
+    "students": 10,
+    "category": "non-popular",
+    "description": "Circular Movements, Joint Locks, Throws",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzejXHsvNLDzkYPpJtRZw0EeDDRiQc0WHB1LPXmNx0-uZIewrajwPlsaia-L0ngX-nblM&usqp=CAU",
+    "price": 40
+  },
+  {
+    "_id": 12,
+    "className": "Wing Chun",
+    "students": 5,
+    "category": "non-popular",
+    "description": "Close-range Combat, Simplicity, Efficiency",
+    "image": "https://shaolinwingchun.com/wp-content/uploads/2020/10/Wing-Chun.jpg",
+     "price": 30
+  }
+]

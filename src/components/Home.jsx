@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import { Helmet} from "react-helmet-async";
+import PopularClasses from "./PopularClasses";
 
 
 const Home = () => {
@@ -15,6 +16,8 @@ const Home = () => {
     if(navigation.state=='loading'){
       return <LoadingSpinner></LoadingSpinner>
     }
+
+
   return (
     <>
       <Helmet>
@@ -39,6 +42,7 @@ const Home = () => {
         <h2 className="text-5xl font-bold text-center mb-10">
           Popular Classes
         </h2>
+        <PopularClasses></PopularClasses>
       </div>
       <div className="my-container">
         <h2 className="font-bold text-5xl text-center mb-5">
@@ -204,7 +208,7 @@ const Home = () => {
         </Swiper>
       </div>
 
-      <div className="my-container flex gap-5 mb-12  bg-slate-700 items-center flex-col justify-between lg:flex-row">
+      <div className="my-container flex gap-5 mb-12  bg-gray-800 items-center flex-col justify-between lg:flex-row">
         <div>
           <hr className=" border-4" />
           <h2 className="text-5xl font-extrabold my-5">Stay updated</h2>
