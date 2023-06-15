@@ -62,11 +62,8 @@ const Login = () => {
                     body: JSON.stringify(savedUser),
                   })
                     .then((res) => res.json())
-                    .then((data) => {
-                      if (data.insertedId) {
-                       
-                         navigate(from, { replace: true });
-                      }
+                    .then(() => {
+                      navigate(from, { replace: true });
                     });
        
       })
