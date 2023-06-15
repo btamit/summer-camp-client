@@ -98,7 +98,7 @@ const Header = () => {
               )}
             </li> */}
             <li>
-              <Link to="/">
+              <Link to="/dashboard/mycart">
                 <button className="btn">
                   <FaShoppingCart/>
                   <div className="badge badge-secondary">+{cart?.length || 0}</div>
