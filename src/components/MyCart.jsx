@@ -35,7 +35,7 @@ const MyCart = () => {
         });
     }
     return (
-      <div>
+      <div className='w-full'>
         <Helmet>
           <title>Martial Arts | My Cart</title>
         </Helmet>

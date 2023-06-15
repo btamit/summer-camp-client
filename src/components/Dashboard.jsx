@@ -7,7 +7,10 @@ import {
   FaRegIdCard,
   FaWallet,
 } from "react-icons/fa";
+import useCart from '../hooks/useCart';
+
 const Dashboard = () => {
+    const [cart] = useCart();
     return (
       <div className="my-container">
         <div className="drawer lg:drawer-open">
@@ -44,6 +47,7 @@ const Dashboard = () => {
               <li>
                 <NavLink to="/dashboard/mycart">
                   <FaShoppingCart></FaShoppingCart> My Cart
+                    <span className='badge inl badge-secondary'>+{cart?.length || 0}</span>                
                 </NavLink>
               </li>
               <li>
