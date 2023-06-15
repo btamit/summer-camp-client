@@ -19,6 +19,7 @@ import {
 import Dashboard from "./components/Dashboard";
 import MyCart from "./components/MyCart";
 import PrivateRoute from "./components/PrivateRoute";
+import AllUsers from "./components/AllUsers";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: "mycart",
         element: <MyCart></MyCart>,
+      },
+      {
+        path: "allusers",
+        element: <AllUsers></AllUsers>,
       },
     ],
   },
