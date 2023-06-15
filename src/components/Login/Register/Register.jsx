@@ -68,7 +68,7 @@ const onSubmit= data => {
         .catch(error => console.log(error))
         navigate(from, { replace: true });
         setError('');
-        e.target.reset();
+        // e.target.reset();
         setSuccess('user has been successfully created');
       })
       .catch((error) => {
