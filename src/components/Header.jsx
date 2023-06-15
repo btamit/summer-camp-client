@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid";
 import { AuthContext } from "../providers/AuthProvider";
+import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../hooks/useCart";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
@@ -10,6 +12,7 @@ const Header = () => {
       .then()
       .catch((error) => console.log(error));
   };
+  const [cart] = useCart();
   return (
     <div className="bg-gray-900">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -21,9 +24,7 @@ const Header = () => {
                 src="https://napleskarate.com/upload/AMA-Logo-clean.png"
                 alt=""
               />
-              <h2 className="text-white text-2xl font-bold">
-                Martial Arts
-              </h2>
+              <h2 className="text-white text-2xl font-bold">Martial Arts</h2>
             </div>
           </Link>
           <ul className="items-center hidden space-x-8 lg:flex">
@@ -51,30 +52,40 @@ const Header = () => {
                 Classes
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               {user && (
                 <div className="flex gap-5 items-center">
                   <div>
                     <NavLink
-                      to="/myToys"
+                      to="/AdminDashboard"
                       className={({ isActive }) =>
                         isActive ? "active" : "default"
                       }
                     >
-                      My Toys
+                      AdminDashboard
                     </NavLink>
                   </div>
                   <div>
                     <NavLink
-                      to="/addAToy"
+                      to="/InstructorDashboard"
                       className={({ isActive }) =>
                         isActive ? "active" : "default"
                       }
                     >
-                      Add A Toy
+                      InstructorDashboard
                     </NavLink>
                   </div>
-                  <div className="tooltip" data-tip="Bishojit Toppo Amit">
+                  <div>
+                    <NavLink
+                      to="/StudentDashboard"
+                      className={({ isActive }) =>
+                        isActive ? "active" : "default"
+                      }
+                    >
+                      StudentDashboard
+                    </NavLink>
+                  </div>
+                  <div className="tooltip" data-tip={user?.displayName}>
                     <NavLink className="text-4xl" to="#">
                       <img
                         className="h-12 rounded-full hover:bg-sky-800"
@@ -85,18 +96,31 @@ const Header = () => {
                   </div>
                 </div>
               )}
+            </li> */}
+            <li>
+              <Link to="/">
+                <button className="btn">
+                  <FaShoppingCart/>
+                  <div className="badge badge-secondary">+{cart?.length || 0}</div>
+                </button>
+              </Link>
             </li>
             <div className="flex flex-col items-center md:flex-row">
               {user ? (
-                <Link
-                  onClick={handleLogOut}
-                  to=""
-                  className="btn md:w-auto md:mr-4 border-none"
-                >
-                  <div className="inline-flex items-center justify-center w-full h-full">
-                    <p className="mr-3">Logout</p>
-                  </div>
-                </Link>
+                <>
+                  {/* <span className="text-2xl mr-2 text-gray-300">
+                    {user?.displayName}
+                  </span> */}
+                  <Link
+                    onClick={handleLogOut}
+                    to=""
+                    className="btn md:w-auto md:mr-4 border-none"
+                  >
+                    <div className="inline-flex items-center justify-center w-full h-full">
+                      <p className="mr-3">Logout</p>
+                    </div>
+                  </Link>
+                </>
               ) : (
                 <Link to="/login" className="btn md:w-auto md:mr-4 border-none">
                   <div className="inline-flex items-center justify-center w-full h-full">

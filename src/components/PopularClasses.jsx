@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import ClassItem from './ClassItem';
+import useClasses from '../hooks/useClasses';
 
 const PopularClasses = () => {
-    const [PopularClasses, setPopularClasses] = useState([]);
-    useEffect(()=>{
-        fetch('popularClasses.json')
-        .then(res => res.json())
-        .then(data => {
-            const popularClassItems = data.filter(classes => classes.category ==='popular')
-            setPopularClasses(popularClassItems)
-        })
-    },[])
+
+    const [classes] = useClasses();
+    const popularClasses = classes.filter(classItem => classItem.category === 'popular');
     return (
         <div className='grid md:grid-cols-3 gap-4'>
             {
-                PopularClasses.map(classItem => <ClassItem key={classItem._id} classItem={classItem} ></ClassItem> )
+                popularClasses.map(classItem => <ClassItem key={classItem._id} classItem={classItem} ></ClassItem> )
             }
         </div>
     );

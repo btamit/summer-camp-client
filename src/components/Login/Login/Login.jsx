@@ -5,32 +5,49 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../../../firebase/firebase.config";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
+
 const Login = () => {
   const auth = getAuth(app);
-  const [error, setError] = useState('');
   const googleProvider = new GoogleAuthProvider();
+  const [error, setError] = useState("");
   const githubProvider = new GithubAuthProvider();
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
-    signIn(email, password)
-      .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
-        navigate(from, { replace: true });
-        setError('');
-      })
-      .catch((error) => {
-        console.log(error);
-        setError(error.message)
-      });
-  };
+
+    const {
+      register,
+      handleSubmit,
+      reset
+    } = useForm();
+
+    const onSubmit = (data) => {
+      console.log(data);
+        signIn(data.email, data.password)
+          .then((result) => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            reset();
+            Swal.fire({
+              title: "User login successful",
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+            });
+            navigate(from, { replace: true });
+            setError("");
+          })
+          .catch((error) => {
+            console.log(error);
+            setError(error.message);
+          });
+    };
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
@@ -64,13 +81,14 @@ const Login = () => {
             <h1 className="text-5xl font-bold">Please Login !</h1>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gray-700">
-            <form onSubmit={handleLogin} className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
                   type="email"
+                  {...register("email", { required: true })}
                   name="email"
                   placeholder="email"
                   required
@@ -83,6 +101,9 @@ const Login = () => {
                 </label>
                 <input
                   type="password"
+                  {...register("password", {
+                    required: true,
+                  })}
                   name="password"
                   placeholder="password"
                   required
@@ -99,7 +120,11 @@ const Login = () => {
                 <p className="text-amber-400">{error}</p>
               </div>
               <div className="form-control mt-4">
-                <button className="btn btn-primary border-none">Login</button>
+                <input
+                  className="btn btn-primary border-none"
+                  type="submit"
+                  value="Login"
+                />
               </div>
             </form>
             <div className="flex p-5 gap-2">

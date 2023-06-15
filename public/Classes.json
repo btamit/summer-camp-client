@@ -1,7 +1,9 @@
 [
   {
-    "_id": 1,
+    "_id": "60c7f0e7b80c11215c6a1234",
     "className": "Karate",
+    "instructor": "Sensei John Smith",
+    "availableSeats": 10,
     "students": 60,
     "category": "popular",
     "description": "Discipline, Strikes, Self-defense, Focus",
@@ -9,8 +11,10 @@
     "price": 50
   },
   {
-    "_id": 2,
+    "_id": "60c7f0e7b80c11215c6a2345",
     "className": "Taekwondo",
+    "instructor": "Master Sarah Johnson",
+    "availableSeats": 5,
     "students": 55,
     "category": "popular",
     "description": "Kicks, Agility, Sparring, Forms",
@@ -18,8 +22,10 @@
      "price": 30
   },
   {
-    "_id": 3,
+    "_id": "60c7f0e7b80c11215c6a3456",
     "className": "Judo",
+    "instructor": "Sensei Robert Davis",
+    "availableSeats": 8,
     "students": 50,
     "category": "popular",
     "description": "Throws, Grappling, Balance, Competition",
@@ -27,8 +33,10 @@
     "price": 40
   },
   {
-    "_id": 4,
+    "_id": "60c7f0e7b80c11215c6a4567",
     "className": "Kung Fu",
+    "instructor": "Sifu Jessica Wilson",
+    "availableSeats": 12,
     "students": 45,
     "category": "non-popular",
     "description": "Fluidity, Forms, Strikes, Meditation",
@@ -36,8 +44,10 @@
     "price": 30
   },
   {
-    "_id": 5,
+    "_id": "60c7f0e7b80c11215c6a5678",
     "className": "Brazilian Jiu-Jitsu",
+     "instructor": "Professor David Brown",
+    "availableSeats": 3,
     "students": 40,
     "category": "popular",
     "description": "Ground Fighting, Submissions, Grappling",
@@ -45,8 +55,10 @@
     "price": 60
   },
   {
-    "_id": 6,
+    "_id": "60c7f0e7b80c11215c6a6789",
     "className": "Muay Thai",
+    "instructor": "Kru Michael Lee",
+    "availableSeats": 7,
     "students": 35,
     "category": "non-popular",
     "description": "Striking, Clinching, Elbows, Knees",
@@ -54,8 +66,10 @@
     "price": 50
   },
   {
-    "_id": 7,
+    "_id": "60c7f0e7b80c11215c6a7890",
     "className": "Boxing",
+    "instructor": "Coach Lisa Anderson",
+    "availableSeats": 6,
     "students": 30,
     "category": "popular",
     "description": "Punching, Footwork, Defense, Conditioning",
@@ -63,8 +77,10 @@
     "price": 40
   },
   {
-    "_id": 8,
+    "_id": "60c7f0e7b80c11215c6a8901",
     "className": "Capoeira",
+    "instructor": "Mestre Pedro Silva",
+    "availableSeats": 10,
     "students": 25,
     "category": "non-popular",
     "description": "Acrobatics, Music, Dance, Martial Art",
@@ -72,8 +88,10 @@
     "price": 30
   },
   {
-    "_id": 9,
+    "_id": "60c7f0e7b80c11215c6a9023",
     "className": "Krav Maga",
+    "instructor": "Lisa Lee",
+    "availableSeats": 4,
     "students": 20,
     "category": "popular",
     "description": "Self-defense, Practical Techniques, Combat",
@@ -81,8 +99,10 @@
     "price": 60
   },
   {
-    "_id": 10,
+    "_id": "60c7f0e7b80c11215c6a9022",
     "className": "Kickboxing",
+    "instructor": "Pedro Miller",
+    "availableSeats": 4,
     "students": 15,
     "category": "non-popular",
     "description": "Kicks, Punches, Conditioning, Sparring",
@@ -90,8 +110,10 @@
     "price": 50
   },
   {
-    "_id": 11,
+    "_id": "60c7f0e7b80c11215c6a9021",
     "className": "Aikido",
+    "instructor": "Silva Rasel",
+    "availableSeats": 4,
     "students": 10,
     "category": "non-popular",
     "description": "Circular Movements, Joint Locks, Throws",
@@ -99,12 +121,14 @@
     "price": 40
   },
   {
-    "_id": 12,
+    "_id":"60c7f0e7b80c11215c6a9020",
     "className": "Wing Chun",
+    "instructor": "Miller Anderson",
+    "availableSeats": 8,
     "students": 5,
     "category": "non-popular",
     "description": "Close-range Combat, Simplicity, Efficiency",
     "image": "https://shaolinwingchun.com/wp-content/uploads/2020/10/Wing-Chun.jpg",
-     "price": 30
+    "price": 30
   }
 ]

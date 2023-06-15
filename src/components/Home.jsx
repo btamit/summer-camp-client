@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import { Helmet} from "react-helmet-async";
 import PopularClasses from "./PopularClasses";
+import PopularInstructors from "./PopularInstructors";
 
 
 const Home = () => {
@@ -39,15 +40,20 @@ const Home = () => {
       </div>
 
       <div className="my-container">
-        <h2 className="text-5xl font-bold text-center mb-10">
-          Popular Classes
-        </h2>
+        <h2 className="text-5xl font-bold text-center mb-2">Popular Classes</h2>
+        <p className="text-center font-semibold mb-5">
+          Join our martial art club and be healthy.
+        </p>
         <PopularClasses></PopularClasses>
       </div>
       <div className="my-container">
-        <h2 className="font-bold text-5xl text-center mb-5">
+        <h2 className="font-bold text-5xl text-center mb-2">
           Popular Instructors
         </h2>
+        <p className="text-center font-semibold mb-5">
+          Join our martial art club and be healthy.
+        </p>
+        <PopularInstructors></PopularInstructors>
       </div>
 
       <div className="my-container">
@@ -207,31 +213,35 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-
-      <div className="my-container flex gap-5 mb-12  bg-gray-800 items-center flex-col justify-between lg:flex-row">
-        <div>
-          <hr className=" border-4" />
-          <h2 className="text-5xl font-extrabold my-5">Stay updated</h2>
-          <hr className="border-4" />
-          <p className="font-bold text-xl my-10">
-            Do not miss any update info and content about our educational
-            platform. Subscribe to out newsletter !
-          </p>
-          <input
-            className="border border-white p-3 md:p-5"
-            type="text"
-            placeholder="Enter your email"
-          />
-          <button className="border bg-gray-600 p-3 md:p-5 font-medium">
-            Subscribe Now
-          </button>
-        </div>
-        <div>
-          <img
-            className=""
-            src="https://t4.ftcdn.net/jpg/04/51/72/63/360_F_451726329_HRfkLpyKsVuQN3lSn4aorzic3SzxIZFE.jpg"
-            alt=""
-          />
+      <div>
+        <h2 className="text-5xl font-bold text-center">
+          Subscribe Our Newsletter
+        </h2>
+        <div className="my-container flex gap-5 mb-12  bg-gray-800 items-center flex-col justify-between lg:flex-row">
+          <div>
+            <hr className=" border-4" />
+            <h2 className="text-5xl font-extrabold my-5">Stay updated</h2>
+            <hr className="border-4" />
+            <p className="font-bold text-xl my-10">
+              Do not miss any update info and content about our educational
+              platform. Subscribe to out newsletter !
+            </p>
+            <input
+              className="border border-white p-3 md:p-5"
+              type="text"
+              placeholder="Enter your email"
+            />
+            <button className="border bg-gray-600 p-3 md:p-5 font-medium">
+              Subscribe Now
+            </button>
+          </div>
+          <div>
+            <img
+              className=""
+              src="https://t4.ftcdn.net/jpg/04/51/72/63/360_F_451726329_HRfkLpyKsVuQN3lSn4aorzic3SzxIZFE.jpg"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </>

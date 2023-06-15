@@ -11,7 +11,13 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import Instructors from "./components/Instructors";
 import Classes from "./components/Classes";
 import {HelmetProvider } from "react-helmet-async";
+// import PrivateRoute from "./components/PrivateRoute";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 
+const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,11 +30,14 @@ const router = createBrowserRouter([
       },
       {
         path: "instructors",
-        element: <Instructors></Instructors>
+        element: <Instructors></Instructors>,
       },
       {
         path: "classes",
-        element: <Classes></Classes>
+        element:
+          
+            <Classes></Classes>
+         
       },
       {
         path: "login",
@@ -49,7 +58,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthProvider>
     <HelmetProvider>
-      <RouterProvider router={router}></RouterProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router}></RouterProvider>
+      </QueryClientProvider>
     </HelmetProvider>
   </AuthProvider>
 );
