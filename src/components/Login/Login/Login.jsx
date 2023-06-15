@@ -52,8 +52,23 @@ const Login = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
+         const savedUser = { name: user.displayName, email: user.email };
         console.log(user);
-        navigate(from, { replace: true });
+                  fetch("http://localhost:5000/users", {
+                    method: "POST",
+                    headers: {
+                      "content-type": "application/json",
+                    },
+                    body: JSON.stringify(savedUser),
+                  })
+                    .then((res) => res.json())
+                    .then((data) => {
+                      if (data.insertedId) {
+                       
+                         navigate(from, { replace: true });
+                      }
+                    });
+       
       })
       .catch((error) => {
         console.log(error.message);
