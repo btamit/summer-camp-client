@@ -1,51 +1,56 @@
 import { useForm } from "react-hook-form";
 // import Swal from "sweetalert2";
-// import useAxiosSecure from "../hooks/useAxiosSecure";
+import useAxiosSecure from "../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
+const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 const AddClass = () => {
-//   const [axiosSecure] = useAxiosSecure();
+  const [axiosSecure] = useAxiosSecure();
+const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
   const { register, handleSubmit, reset } = useForm();
-//   const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
 
   const onSubmit = (data) => {
     console.log(data);
-  }
-//     const formData = new FormData();
-//     formData.append("image", data.image[0]);
+ 
+    const formData = new FormData();
+    formData.append("image", data.image[0]);
   
-//     fetch(img_hosting_url, {
-//       method: "POST",
-//       body: formData,
-//     })
-//       .then((res) => res.json())
-//       .then((imgResponse) => {
-//         if (imgResponse.success) {
-//           const imgURL = imgResponse.data.display_url;
-//           const { name, price, category, recipe } = data;
-//           const newItem = {
-//             name,
-//             price: parseFloat(price),
-//             category,
-//             recipe,
-//             image: imgURL,
-//           };
-//           console.log(newItem);
-//           axiosSecure.post("/menu", newItem).then((data) => {
-//             console.log("after posting new menu item", data.data);
-//             if (data.data.insertedId) {
-//               reset();
-//               Swal.fire({
-//                 position: "top-end",
-//                 icon: "success",
-//                 title: "Item added successfully",
-//                 showConfirmButton: false,
-//                 timer: 1500,
-//               });
-//             }
-//           });
-//         }
-//       });
-//   };
+    fetch(img_hosting_url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgResponse) => {
+        console.log(imgResponse)
+        if (imgResponse.success) {
+          const imgURL = imgResponse.data.display_url;
+          console.log(data)
+          const { instructor,email, price, className, availableSeats, } = data;
+          const newItem = {
+            instructor,
+            price: parseFloat(price),
+            className,
+            email,
+            availableSeats: parseFloat(availableSeats),
+            image: imgURL,
+          };
+          console.log(newItem);
+          axiosSecure.post("/classes", newItem).then((data) => {
+            console.log("after posting new class", data.data);
+            if (data.data.insertedId) {
+              reset();
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "class added successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          });
+        }
+      });
+  };
 
   return (
     <>
@@ -59,7 +64,7 @@ const AddClass = () => {
             <input
               type="text"
               placeholder="Instructor Name"
-              {...register("name", { required: true, maxLength: 120 })}
+              {...register("instructor", { required: true, maxLength: 120 })}
               className="input input-bordered w-full "
             />
           </div>
@@ -72,7 +77,7 @@ const AddClass = () => {
             <input
               type="text"
               placeholder="Instructor Email"
-              {...register("name", { required: true, maxLength: 120 })}
+              {...register("email", { required: true, maxLength: 120 })}
               className="input input-bordered w-full "
             />
           </div>
@@ -83,7 +88,7 @@ const AddClass = () => {
               </label>
               <select
                 defaultValue="Pick One"
-                {...register("category", { required: true })}
+                {...register("className", { required: true })}
                 className="select select-bordered"
               >
                 <option disabled>Choose One</option>
@@ -119,7 +124,7 @@ const AddClass = () => {
             </label>
             <input
               type="number"
-              {...register("availableseats", { required: true })}
+              {...register("availableSeats", { required: true })}
               placeholder="Type here"
               className="input input-bordered w-full "
             />
