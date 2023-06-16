@@ -33,7 +33,7 @@ const AllUsers = () => {
 
     }
     return (
-      <div className="w-full">
+      <div className="w-full bg-gray-700 ml-5 p-5">
         <Helmet>
           <title>Martials Arts | All users</title>
         </Helmet>
