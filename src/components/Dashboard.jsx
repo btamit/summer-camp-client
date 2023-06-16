@@ -16,7 +16,7 @@ const Dashboard = () => {
     // TODO:
     // const isAdmin = true;
     const [isAdmin] = useAdmin();
-    
+
     return (
       <div className="my-container">
         <div className="drawer lg:drawer-open">
@@ -47,7 +47,7 @@ const Dashboard = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/dashboard/classes">
+                    <NavLink to="/dashboard/manageclass">
                       <FaRegIdCard></FaRegIdCard> Manage Classes
                     </NavLink>
                   </li>

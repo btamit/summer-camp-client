@@ -20,6 +20,9 @@ import Dashboard from "./components/Dashboard";
 import MyCart from "./components/MyCart";
 import PrivateRoute from "./components/PrivateRoute";
 import AllUsers from "./components/AllUsers";
+import ManageClass from "./components/ManageClass";
+import AdminRoute from "./components/AdminRoute";
+import AddClass from "./components/AddClass";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -69,6 +72,18 @@ const router = createBrowserRouter([
       {
         path: "allusers",
         element: <AllUsers></AllUsers>,
+      },
+      {
+        path: "addclass",
+        element: <AddClass></AddClass>,
+      },
+      {
+        path: "manageclass",
+        element: (
+          <AdminRoute>
+            <ManageClass></ManageClass>
+          </AdminRoute>
+        ),
       },
     ],
   },
