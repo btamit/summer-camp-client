@@ -4,7 +4,11 @@ import { useState } from "react";
 import { useEffect } from "react";
 import useAxiosSecure from '../hooks/useAxiosSecure';
 import useAuth from '../hooks/useAuth';
-const CheckoutForm = ({price}) => {
+import './CheckoutForm.css'
+
+
+
+const CheckoutForm = ({price,cart}) => {
     const stripe = useStripe();
     const elements = useElements();
     const {user} = useAuth();
@@ -65,6 +69,21 @@ const CheckoutForm = ({price}) => {
            if(paymentIntent.status ==='succeeded'){
             setTransactionId(paymentIntent.id);
             // const transactionId = paymentIntent.id;
+            const payment = {
+              email: user?.email, 
+              transactionId: paymentIntent.id, 
+              price,
+              quantity: cart.length,
+              items: cart.map(item => item._id),
+              itemNames: cart.map(item =>item.name)
+            }
+            axiosSecure.post('/payments',payment)
+            .then(res =>{
+              console.log(res.data);
+              if(res.data.insertedId){
+
+              }
+            })
            }
 
    }
