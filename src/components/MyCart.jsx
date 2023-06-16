@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import useCart from '../hooks/useCart';
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 const MyCart = () => {
     const [cart,refetch] = useCart();
     const totalClass = cart.reduce((sum,allClass) => allClass.price + sum,0)
@@ -35,7 +36,7 @@ const MyCart = () => {
         });
     }
     return (
-      <div className='w-full'>
+      <div className="w-full">
         <Helmet>
           <title>Martial Arts | My Cart</title>
         </Helmet>
@@ -46,7 +47,9 @@ const MyCart = () => {
           <h2 className="text-3xl font-bold text-white my-5">
             Total Price : $ {totalClass}{" "}
           </h2>
-          <button className="btn btn-sm">Make Payment</button>
+          <Link to="/dashboard/payment">
+            <button className="btn btn-sm">Make Payment</button>
+          </Link>
         </div>
         <div className="overflow-x-auto">
           <table className="table">
@@ -61,30 +64,25 @@ const MyCart = () => {
               </tr>
             </thead>
             <tbody>
-              {cart.map((classItem,i) => (
+              {cart.map((classItem, i) => (
                 <tr key={classItem._id}>
+                  <td>{i + 1}</td>
                   <td>
-                   {i+1}
+                    <div className="mask mask-squircle w-12 h-12">
+                      <img
+                        src={classItem.image}
+                        alt="Avatar Tailwind CSS Component"
+                      />
+                    </div>
                   </td>
+                  <td>{classItem.className}</td>
+                  <td>$ {classItem.price}</td>
                   <td>
-                        <div className="mask mask-squircle w-12 h-12">
-                          <img
-                            src={classItem.image}
-                            alt="Avatar Tailwind CSS Component"
-                          />
-                        </div>
-                  </td>
-                  <td>
-                   {
-                    classItem.className
-                   }
-                  </td>
-                  <td>
-                    $ {classItem.price}
-                  </td>
-                  <td>
-                    <button onClick={() => handleDelete(classItem)} className="btn btn-ghost btn-xs">
-                        <FaTrashAlt></FaTrashAlt>
+                    <button
+                      onClick={() => handleDelete(classItem)}
+                      className="btn btn-ghost btn-xs"
+                    >
+                      <FaTrashAlt></FaTrashAlt>
                     </button>
                   </td>
                 </tr>

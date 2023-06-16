@@ -23,6 +23,7 @@ import AllUsers from "./components/AllUsers";
 import ManageClass from "./components/ManageClass";
 import AdminRoute from "./components/AdminRoute";
 import AddClass from "./components/AddClass";
+import Payment from "./components/Payment";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -70,8 +71,16 @@ const router = createBrowserRouter([
         element: <MyCart></MyCart>,
       },
       {
+        path: "payment",
+        element: <Payment></Payment>,
+      },
+      {
         path: "allusers",
-        element: <AllUsers></AllUsers>,
+        element: (
+          <AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
       },
       {
         path: "addclass",
