@@ -24,6 +24,8 @@ import ManageClass from "./components/ManageClass";
 import AdminRoute from "./components/AdminRoute";
 import AddClass from "./components/AddClass";
 import Payment from "./components/Payment";
+import UserHome from "./components/UserHome";
+import AdminHome from "./components/AdminHome";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -67,12 +69,24 @@ const router = createBrowserRouter([
     ),
     children: [
       {
+        path: "userhome",
+        element: <UserHome></UserHome>,
+      },
+      {
         path: "mycart",
         element: <MyCart></MyCart>,
       },
       {
         path: "payment",
         element: <Payment></Payment>,
+      },
+      {
+        path: "adminhome",
+        element: (
+          <AdminRoute>
+            <AdminHome></AdminHome>
+          </AdminRoute>
+        ),
       },
       {
         path: "allusers",

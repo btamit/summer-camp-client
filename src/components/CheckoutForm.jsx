@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import useAxiosSecure from '../hooks/useAxiosSecure';
 import useAuth from '../hooks/useAuth';
-import './CheckoutForm.css'
 
 
 
@@ -17,13 +16,15 @@ const CheckoutForm = ({price,cart}) => {
     const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
+
     useEffect(() =>{
-      axiosSecure.post("/create-payment-intent",{price})
-      .then(res =>{
-        console.log(res.data.clientSecret);
-        setClientSecret(res.data.clientSecret)
-      })
-    },[])
+      if(price > 0){
+        axiosSecure.post("/create-payment-intent", { price }).then((res) => {
+          console.log(res.data.clientSecret);
+          setClientSecret(res.data.clientSecret);
+        });
+      }
+    },[price, axiosSecure])
 
 
    const handleSubmit = async (event) =>{
@@ -70,17 +71,21 @@ const CheckoutForm = ({price,cart}) => {
             setTransactionId(paymentIntent.id);
             // const transactionId = paymentIntent.id;
             const payment = {
-              email: user?.email, 
-              transactionId: paymentIntent.id, 
+              email: user?.email,
+              transactionId: paymentIntent.id,
               price,
+              date: new Date(),
               quantity: cart.length,
-              items: cart.map(item => item._id),
-              itemNames: cart.map(item =>item.name)
-            }
+              status: "pending",
+              cartItems: cart.map((item) => item._id),
+              classItems: cart.map((item) => item.classItemId),
+              itemNames: cart.map((item) => item.name),
+              availableSeats: cart.map((item) => item.availableSeats),
+            };
             axiosSecure.post('/payments',payment)
             .then(res =>{
               console.log(res.data);
-              if(res.data.insertedId){
+              if(res.data.result.insertedId){
 
               }
             })

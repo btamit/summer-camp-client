@@ -4,8 +4,10 @@ import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid";
 import { AuthContext } from "../providers/AuthProvider";
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAdmin] = useAdmin();
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
     logOut()
@@ -50,6 +52,14 @@ const Header = () => {
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
                 Classes
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={isAdmin ? '/dashboard/adminhome' : '/dashboard/userhome'}
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
+                Dashboard
               </NavLink>
             </li>
             {/* <li>
