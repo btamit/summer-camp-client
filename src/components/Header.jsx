@@ -54,28 +54,40 @@ const Header = () => {
                 Classes
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to={isAdmin ? '/dashboard/adminhome' : '/dashboard/userhome'}
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
                 Dashboard
               </NavLink>
-            </li>
-            {/* <li>
+            </li> */}
+            <li>
               {user && (
                 <div className="flex gap-5 items-center">
                   <div>
                     <NavLink
-                      to="/AdminDashboard"
+                      to={
+                        isAdmin ? "/dashboard/adminhome" : "/dashboard/userhome"
+                      }
                       className={({ isActive }) =>
                         isActive ? "active" : "default"
                       }
                     >
-                      AdminDashboard
+                      Dashboard
                     </NavLink>
                   </div>
-                  <div>
+                  <li>
+                    <Link to="/dashboard/mycart">
+                      <button className="btn">
+                        <FaShoppingCart />
+                        <div className="badge badge-secondary">
+                          +{cart?.length || 0}
+                        </div>
+                      </button>
+                    </Link>
+                  </li>
+                  {/* <div>
                     <NavLink
                       to="/InstructorDashboard"
                       className={({ isActive }) =>
@@ -94,7 +106,7 @@ const Header = () => {
                     >
                       StudentDashboard
                     </NavLink>
-                  </div>
+                  </div> */}
                   <div className="tooltip" data-tip={user?.displayName}>
                     <NavLink className="text-4xl" to="#">
                       <img
@@ -106,21 +118,23 @@ const Header = () => {
                   </div>
                 </div>
               )}
-            </li> */}
-            <li>
+            </li>
+            {/* <li>
               <Link to="/dashboard/mycart">
                 <button className="btn">
-                  <FaShoppingCart/>
-                  <div className="badge badge-secondary">+{cart?.length || 0}</div>
+                  <FaShoppingCart />
+                  <div className="badge badge-secondary">
+                    +{cart?.length || 0}
+                  </div>
                 </button>
               </Link>
-            </li>
+            </li> */}
             <div className="flex flex-col items-center md:flex-row">
               {user ? (
                 <>
-                  {/* <span className="text-2xl mr-2 text-gray-300">
+                  <span className=" text-gray-300 font-bold mr-2">
                     {user?.displayName}
-                  </span> */}
+                  </span>
                   <Link
                     onClick={handleLogOut}
                     to=""
