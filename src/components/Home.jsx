@@ -9,7 +9,7 @@ import { Pagination } from "swiper";
 import { Helmet} from "react-helmet-async";
 import PopularClasses from "./PopularClasses";
 import PopularInstructors from "./PopularInstructors";
-import anime from "animejs/lib/anime.es.js";
+// import anime from "animejs/lib/anime.es.js";
 
 const Home = () => {
    const navigation = useNavigation();

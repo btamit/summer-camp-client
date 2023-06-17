@@ -54,7 +54,7 @@ const Login = () => {
         const user = result.user;
          const savedUser = { name: user.displayName, email: user.email };
         console.log(user);
-                  fetch("http://localhost:5000/users", {
+                  fetch("https://summer-camp-school-server-smoky.vercel.app/users", {
                     method: "POST",
                     headers: {
                       "content-type": "application/json",

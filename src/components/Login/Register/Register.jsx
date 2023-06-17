@@ -43,7 +43,7 @@ const onSubmit= data => {
         .then(() =>{
             console.log('User profile info updated');
             const savedUser = {name: data.name, email:data.email}
-            fetch("http://localhost:5000/users",{
+            fetch("https://summer-camp-school-server-smoky.vercel.app/users",{
               method:'POST',
               headers:{
                 'content-type':'application/json'

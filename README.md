@@ -1,6 +1,6 @@
 # Summer Camp School  
 
-A Summer Camp School website that has been built with React, React Router Dom & used firebase for authentication purpose and It is a fall stack project.
+A Summer Camp School website that has been built with React, React Router Dom & used firebase for authentication purpose and It is a fall stack project. I have used express for server and mongodb for database.
 
 ## Mainly, It is an educational  platform.
 
@@ -18,7 +18,7 @@ A Summer Camp School website that has been built with React, React Router Dom & 
 
 
 ## Live Link
-Hosted in firebase -> [Summer Camp School]()
+Hosted in firebase -> [Summer Camp School](https://summer-camp-school-clien-a74d5.web.app/)
 
 ## API 
 Simple API are included in this project.

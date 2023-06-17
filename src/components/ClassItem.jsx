@@ -25,7 +25,7 @@ const location = useLocation();
         console.log(item)
         if(user && user.email){
             const classCartItem = {classItemId:_id, email:user.email, className,image,price,instructor}
-            fetch("http://localhost:5000/carts", {
+            fetch("https://summer-camp-school-server-smoky.vercel.app/carts", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
