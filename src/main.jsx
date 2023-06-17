@@ -28,6 +28,8 @@ import UserHome from "./components/UserHome";
 import AdminHome from "./components/AdminHome";
 import EnrolledClass from "./components/EnrolledClass";
 import PaymentHistory from "./components/PaymentHistory";
+import MyClass from "./components/MyClass";
+import TeacherHome from "./components/TeacherHome";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -91,6 +93,14 @@ const router = createBrowserRouter([
         element: <Payment></Payment>,
       },
       {
+        path:'myclass',
+        element:<MyClass></MyClass>
+      },
+      {
+        path:'teacherhome',
+        element:<TeacherHome></TeacherHome>
+      },
+      {
         path: "adminhome",
         element: (
           <AdminRoute>
@@ -112,6 +122,16 @@ const router = createBrowserRouter([
           <AdminRoute>
             <AddClass></AddClass>
           </AdminRoute>
+        ),
+      },
+      {
+        path: "addaclass",
+        element: <AddClass></AddClass>
+      },
+      {
+        path: "manageaclass",
+        element: (
+            <ManageClass></ManageClass>
         ),
       },
       {
