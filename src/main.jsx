@@ -26,6 +26,8 @@ import AddClass from "./components/AddClass";
 import Payment from "./components/Payment";
 import UserHome from "./components/UserHome";
 import AdminHome from "./components/AdminHome";
+import EnrolledClass from "./components/EnrolledClass";
+import PaymentHistory from "./components/PaymentHistory";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -68,6 +70,14 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      {
+        path: "enrolledclass",
+        element: <EnrolledClass></EnrolledClass>,
+      },
+      {
+        path: "paymenthistory",
+        element: <PaymentHistory></PaymentHistory>,
+      },
       {
         path: "userhome",
         element: <UserHome></UserHome>,
